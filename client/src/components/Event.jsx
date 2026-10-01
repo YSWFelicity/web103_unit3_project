@@ -1,62 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import '../css/Event.css'
 
-const Event = (props) => {
-
-    const [event, setEvent] = useState([])
-    const [time, setTime] = useState([])
-    const [remaining, setRemaining] = useState([])
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const eventData = await EventsAPI.getEventsById(props.id)
-                setEvent(eventData)
-            }
-            catch (error) {
-                throw error
-            }
-        }) ()
-    }, [])
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const result = await dates.formatTime(event.time)
-                setTime(result)
-            }
-            catch (error) {
-                throw error
-            }
-        }) ()
-    }, [event])
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const timeRemaining = await dates.formatRemainingTime(event.remaining)
-                setRemaining(timeRemaining)
-                dates.formatNegativeTimeRemaining(remaining, event.id)
-            }
-            catch (error) {
-                throw error
-            }
-        }) ()
-    }, [event])
-
-    return (
-        <article className='event-information'>
-            <img src={event.image} />
-
-            <div className='event-information-overlay'>
-                <div className='text'>
-                    <h3>{event.title}</h3>
-                    <p><i className="fa-regular fa-calendar fa-bounce"></i> {event.date} <br /> {time}</p>
-                    <p id={`remaining-${event.id}`}>{remaining}</p>
-                </div>
-            </div>
-        </article>
-    )
+export default function Event({ event }) {
+    const startsAt = new Date(event.starts_at)
+    const formatted = new Intl.DateTimeFormat('en-US', {
+        dateStyle: 'medium', timeStyle: 'short', timeZone: event.timezone
+    }).format(startsAt)
+    return <article className="event-information">
+        <img src={event.image} alt="" loading="lazy" />
+        <div className="event-copy">
+            <h3>{event.title}</h3>
+            <p><time dateTime={event.starts_at}>{formatted}</time> (Dallas time)</p>
+            <p>{event.description}</p>
+            <Link to={`/${event.location_slug}`}>{event.location_name}</Link>
+        </div>
+    </article>
 }
-
-export default Event

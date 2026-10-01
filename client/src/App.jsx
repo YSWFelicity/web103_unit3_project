@@ -13,24 +13,25 @@ const App = () => {
     },
     {
       path: '/echolounge',
-      element: <LocationEvents index={1} />
+      element: <LocationEvents slug="echolounge" />
     },
     {
       path: '/houseofblues',
-      element: <LocationEvents index={2} />
+      element: <LocationEvents slug="houseofblues" />
     },
     {
       path: '/pavilion',
-      element: <LocationEvents index={3} />
+      element: <LocationEvents slug="pavilion" />
     },
     {
       path: '/americanairlines',
-      element: <LocationEvents index={4} />
+      element: <LocationEvents slug="americanairlines" />
     },
     {
       path: '/events',
       element: <Events />
-    }
+    },
+    { path: '*', element: <p>Page not found. <Link to='/'>Back to plaza</Link></p> }
   ])
 
   return (

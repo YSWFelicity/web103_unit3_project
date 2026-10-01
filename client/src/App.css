@@ -1,33 +1,6 @@
-.app {
-    background: url('./assets/unitygrid.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
-
-header {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.main-header {
-    height: 30vh;
-    width: 85vw;
-    align-items: flex-end;
-    position: relative;
-    z-index: 1;
-}
-
-.header-buttons {
-    width: 30%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.header-buttons button {
-    margin-right: 20px;
-    margin-left: 20px;
-}
+.app { max-width: 1200px; margin: auto; padding: 24px; }
+.main-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 0 32px; }
+.header-buttons { display: flex; gap: 12px; }
+.header-buttons a[role=button] { font-size: .9rem; margin: 0; color: white !important; }
+.event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 24px; }
+@media (max-width: 600px) { .app { padding: 16px; } .main-header { flex-direction: column; align-items: flex-start; } }
