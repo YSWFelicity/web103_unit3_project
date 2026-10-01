@@ -41,27 +41,13 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
-**TODO: Record a GIF walkthrough and add it here before submission.**
-
-Suggested file: `docs/walkthrough.gif`. Once the file exists, replace this TODO with:
-
-```markdown
-![Video Walkthrough](docs/walkthrough.gif)
-```
-
-Suggested walkthrough:
-
-1. Show the home page title and interactive map.
-2. Click each of the four map landmarks and show its unique URL and events.
-3. Open Events and show all eight events.
-4. Filter by a venue, then return to All venues.
-5. Show a running countdown and the different styling of a past event.
+[Watch the video walkthrough on Google Drive](https://drive.google.com/file/d/1iMPCCtMeP2g5RW3V7fW2TtDEgyR37Faz/view?usp=sharing)
 
 ## Notes
 
 The starter referenced missing API services, an Events page, and date utilities. These were completed using a shared fetch service, database-backed API routes, and a countdown helper. Event timestamps are stored as PostgreSQL `TIMESTAMPTZ` and displayed in the venue's Dallas time zone.
 
-Event and venue cards currently reuse the starter plaza image. Browser visual review and GIF recording are still pending. The exact course README template should be checked before submission.
+Event and venue cards currently reuse the starter plaza image. Browser visual review is still pending. The walkthrough is linked above. The exact course README template should be checked before submission.
 
 ## Local Setup
 
